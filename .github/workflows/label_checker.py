@@ -16,7 +16,7 @@ component = None
 i = os.environ["ISSUE_BODY"].find("### Affected Component")
 j = os.environ["ISSUE_BODY"].find("### Version")
 
-if i != -1 and j != -1:
+if i != -1 and j != -1 and j > i:
     component = os.environ["ISSUE_BODY"][i+23:j].strip()
     component_label = "Component/" + component
     if component_label in all_existing_labels:
